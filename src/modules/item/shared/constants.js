@@ -1,2 +1,9 @@
-export const itemCardWidth = 190
-export const itemCardMargin = 8
+export const cardWidth = 190
+export const cardMargin = 8
+export const categories = [
+  'Cars & Trucks',
+  'Furniture',
+  'Appliances',
+  'Baby & Kids',
+  'Clothing & Shoes'
+]

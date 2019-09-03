@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-import ItemCard from '../../shared/ItemCard'
+import Card from '../../shared/Card'
 
-export const FindItemsGridWrapper = styled.div`
+export const GridWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 0 48px;
 `
 
-const FindItemsGrid = ({ items, columnCount }) => {
+const Grid = ({ items, columnCount }) => {
   const [grid, setGrid] = useState([[]])
 
   useEffect(() => {
@@ -25,16 +25,16 @@ const FindItemsGrid = ({ items, columnCount }) => {
   }, [items, columnCount])
 
   return (
-    <FindItemsGridWrapper>
+    <GridWrapper>
       {grid.map((column, i) => (
         <div key={i}>
           {column.map(item => (
-            <ItemCard key={item.id} item={item} />
+            <Card key={item.id} item={item} />
           ))}
         </div>
       ))}
-    </FindItemsGridWrapper>
+    </GridWrapper>
   )
 }
 
-export default FindItemsGrid
+export default Grid

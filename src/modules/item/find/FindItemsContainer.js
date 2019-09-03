@@ -8,9 +8,7 @@ const findItemsQuery = gql`
       name
       price
       images
-      latitude
-      longitude
-      isAd
+      location
     }
   }
 `

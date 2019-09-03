@@ -34,10 +34,14 @@ export const ItemCardWrapper = styled.div`
     font-weight: 900;
     margin: 5px 0;
   }
+  .location {
+    font-size: 14px;
+    color: ${p => p.theme.grey[8]};
+  }
 `
 
 const ItemCard = ({ item }) => {
-  const { id, name, images, price } = item
+  const { id, name, images, price, location } = item
 
   return (
     <Link to={`/item/${id}`}>
@@ -46,6 +50,7 @@ const ItemCard = ({ item }) => {
         <div className='content'>
           <div className='name'>{formatName(name)}</div>
           <div className='price'>{formatPrice(price)}</div>
+          <div className='location'>{location}</div>
         </div>
       </ItemCardWrapper>
     </Link>

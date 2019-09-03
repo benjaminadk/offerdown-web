@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { ChevronDown } from 'styled-icons/boxicons-regular/ChevronDown'
 // import { ChevronUp } from 'styled-icons/boxicons-regular/ChevronUp'
 import styled from 'styled-components'
@@ -7,8 +7,6 @@ import { itemCardWidth, itemCardMargin } from '../../shared/constants'
 import { useColumnCount } from '../../../../utils/useColumnCount'
 import FindItemsContainer from '../FindItemsContainer'
 import FindItemsGrid from '../FindItemsGrid'
-
-export const FindItemsConnectorWrapper = styled.div``
 
 export const FindItemCategories = styled.div`
   position: relative;
@@ -50,7 +48,7 @@ const FindItemsConnector = () => {
           return <div>Loading...</div>
         }
         return (
-          <FindItemsConnectorWrapper>
+          <>
             <FindItemCategories>
               <div className='bar'>
                 {categories.map(category => (
@@ -65,7 +63,7 @@ const FindItemsConnector = () => {
               </div>
             </FindItemCategories>
             <FindItemsGrid items={data.findItems} columnCount={columnCount} />
-          </FindItemsConnectorWrapper>
+          </>
         )
       }}
     </FindItemsContainer>

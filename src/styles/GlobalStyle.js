@@ -17,9 +17,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Lato', sans-serif;
     line-height: 24px;
     overflow-y: scroll;
+    user-select: none;
   }
 
-  * {
+  *, *:before, *:after {
     box-sizing: inherit;
   }
 

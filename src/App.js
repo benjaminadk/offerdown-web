@@ -1,6 +1,7 @@
 import React, { createContext } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
+import { useLocation } from './utils/useLocation'
 import { useMedia } from './utils/useMedia'
 import Header from './modules/Header'
 import Routes from './routes'
@@ -12,6 +13,7 @@ export const AppContext = createContext({
 
 const App = () => {
   const screen = useMedia()
+  useLocation()
 
   return (
     <AppContext.Provider value={{ screen }}>

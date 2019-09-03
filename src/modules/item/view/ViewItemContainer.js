@@ -4,10 +4,14 @@ import gql from 'graphql-tag'
 const viewItemQuery = gql`
   query ViewItemQuery($id: ID!) {
     viewItem(id: $id) {
+      createdAt
       name
       description
       price
       images
+      condition
+      category
+      location
       latitude
       longitude
     }

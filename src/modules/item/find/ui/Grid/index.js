@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-import Card from '../../shared/Card'
+import Card from '../../../shared/Card'
 
 export const GridWrapper = styled.div`
   display: flex;

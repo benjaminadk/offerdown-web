@@ -2,7 +2,7 @@ import React from 'react'
 import { ChevronDown } from 'styled-icons/boxicons-regular/ChevronDown'
 // import { ChevronUp } from 'styled-icons/boxicons-regular/ChevronUp'
 
-import { categories } from '../../shared/constants'
+import { categories } from '../../../shared/constants'
 import { CategoriesWrapper } from './styles'
 
 const Categories = () => {

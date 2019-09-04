@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { cardWidth, cardMargin } from '../../shared/constants'
-import { useColumnCount } from '../../../../utils/useColumnCount'
-import FindItemsContainer from '../FindItemsContainer'
-import Grid from '../Grid'
-import Categories from '../Categories'
+import { cardWidth, cardMargin } from '../shared/constants'
+import { useColumnCount } from '../../../utils/useColumnCount'
+import FindItemsContainer from './FindItemsContainer'
+import Grid from './ui/Grid'
+import Categories from './ui/Categories'
 
 const totalCardWidth = cardWidth + cardMargin * 2
 
@@ -15,7 +15,7 @@ const FindItemsConnector = () => {
     <FindItemsContainer>
       {({ loading, data }) => {
         if (loading) {
-          return <div>Loading...</div>
+          return null
         }
         return (
           <>

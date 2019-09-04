@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import footerBackground from '../../styles/footer-background.jpg'
+import footerBackground from '../../../styles/footer-background.jpg'
 
 export const FooterWrapper = styled.footer`
   height: 160px;

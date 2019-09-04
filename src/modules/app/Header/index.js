@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { LocationOn } from 'styled-icons/material/LocationOn'
 
-import { AppContext } from '../../App'
+import { AppContext } from '../../../App'
 import Navigation from './Navigation'
 
 const getGridTemplate = screen => {

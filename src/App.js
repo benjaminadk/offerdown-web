@@ -1,13 +1,13 @@
 import React, { createContext } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import AuthContainer from './modules/auth/AuthContainer'
 import { useLocation } from './utils/useLocation'
 import { useMedia } from './utils/useMedia'
 import { useHere } from './utils/useHere'
-import Header from './modules/Header'
+import Authentication from './modules/app/Authentication'
+import Header from './modules/app/Header'
+import Footer from './modules/app/Footer'
 import Routes from './routes'
-import Footer from './modules/Footer'
 
 export const AppContext = createContext({
   user: null,
@@ -21,7 +21,7 @@ const App = () => {
   useLocation()
 
   return (
-    <AuthContainer>
+    <Authentication>
       {({ loading, data }) => {
         return (
           <AppContext.Provider value={{ user: data.me, screen, platform }}>
@@ -33,7 +33,7 @@ const App = () => {
           </AppContext.Provider>
         )
       }}
-    </AuthContainer>
+    </Authentication>
   )
 }
 

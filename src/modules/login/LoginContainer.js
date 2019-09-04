@@ -2,7 +2,7 @@ import { useMutation } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 
-import { meQuery } from '../auth/AuthContainer'
+import { meQuery } from '../app/Authentication'
 
 const loginMutation = gql`
   mutation Login($email: String!, $password: String!) {

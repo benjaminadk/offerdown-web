@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 
-import { AppContext } from '../../../../App'
-import FiveStar from '../../../shared/FiveStar'
-import Button from '../../../shared/Button'
+import { AppContext } from '../../../../../App'
+import FiveStar from '../../../../shared/FiveStar'
+import Button from '../../../../shared/Button'
 
 export const ActionBoxWrapper = styled.div`
   position: absolute;

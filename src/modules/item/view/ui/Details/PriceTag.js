@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import priceTag from '../../../../styles/price-tag.png'
-import { formatPrice } from '../../../../utils/textHelpers'
+import priceTag from '../../../../../styles/price-tag.png'
+import { formatPrice } from '../../../../../utils/textHelpers'
 
 export const PriceTagWrapper = styled.div`
   display: flex;

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import { LocationOn } from 'styled-icons/material/LocationOn'
 import styled from 'styled-components'
 
-import { AppContext } from '../../../../App'
+import { AppContext } from '../../../../../App'
 
 export const LocationWrapper = styled.div`
   display: flex;

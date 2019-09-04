@@ -1,16 +1,17 @@
 import React from 'react'
 
-import ViewItemContainer from '../ViewItemContainer'
-import Images from '../Images'
-import Details from '../Details'
+import ViewItemContainer from './ViewItemContainer'
+import Images from './ui/Images'
+import Details from './ui/Details'
 
-const ViewItemConnector = props => {
+const ViewItemConnector = ({ match }) => {
   return (
-    <ViewItemContainer itemId={props.match.params.itemId}>
+    <ViewItemContainer itemId={match.params.itemId}>
       {({ loading, data }) => {
         if (loading) {
-          return <div>Loading...</div>
+          return null
         }
+
         const { name, images } = data.viewItem
         return (
           <>

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { formatCondition } from '../../../../utils/textHelpers'
+import { formatCondition } from '../../../../../utils/textHelpers'
 
 export const ConditionWrapper = styled.div`
   display: flex;

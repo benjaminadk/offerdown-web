@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { useQuery } from 'react-apollo'
 import gql from 'graphql-tag'
 
@@ -26,6 +27,10 @@ const viewItemQuery = gql`
 const ViewItemContainer = props => {
   const item = useQuery(viewItemQuery, { variables: { id: props.itemId } })
   return props.children(item)
+}
+
+ViewItemContainer.propTypes = {
+  itemId: PropTypes.string.isRequired
 }
 
 export default ViewItemContainer

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { formatCreatedAt, formatEnum } from '../../../../utils/textHelpers'
+import { formatCreatedAt, formatEnum } from '../../../../../utils/textHelpers'
 
 export const CategoryWrapper = styled.div`
   display: flex;

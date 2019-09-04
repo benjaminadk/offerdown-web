@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useContext } from 'react'
 import styled from 'styled-components'
 
-import { AppContext } from '../../../../App'
+import { AppContext } from '../../../../../App'
 
 export const HereMapWrapper = styled.div`
   display: flex;

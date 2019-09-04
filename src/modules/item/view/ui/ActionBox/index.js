@@ -1,9 +1,13 @@
 import React, { useContext } from 'react'
+import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
+import { ShareSquare as ShareIcon } from 'styled-icons/fa-solid/ShareSquare'
+import { Heart as HeartOutlineIcon } from 'styled-icons/boxicons-regular/Heart'
 
 import { AppContext } from '../../../../../App'
 import FiveStar from '../../../../shared/FiveStar'
 import Button from '../../../../shared/Button'
+import NewMessage from './NewMessage'
 
 export const ActionBoxWrapper = styled.div`
   position: absolute;
@@ -38,6 +42,31 @@ export const ActionBoxWrapper = styled.div`
       }
     }
   }
+  .footer {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    align-items: center;
+    justify-items: center;
+    margin-top: 12px;
+    .action {
+      display: flex;
+      align-items: center;
+      color: ${p => p.theme.primary};
+      font-weight: 700;
+      &:hover {
+        text-decoration: underline;
+      }
+      svg {
+        fill: currentColor;
+        margin-right: 4px;
+      }
+    }
+    .divider {
+      width: 1px;
+      height: 50%;
+      background-color: ${p => p.theme.grey[5]};
+    }
+  }
 `
 
 const ActionBox = ({ seller, history }) => {
@@ -49,12 +78,6 @@ const ActionBox = ({ seller, history }) => {
     isUserLoggedIn()
     // TODO
     // make offer modal
-  }
-
-  function ask() {
-    isUserLoggedIn()
-    // TODO
-    // make ask modal
   }
 
   function promote() {
@@ -88,14 +111,24 @@ const ActionBox = ({ seller, history }) => {
         ) : (
           <Button type='solid' text='Make offer' onClick={makeOffer} />
         )}
+        {isSeller ? <Button type='outline' text='Mark sold' onClick={markSold} /> : <NewMessage />}
+      </div>
+      <div className='footer'>
         {isSeller ? (
-          <Button type='outline' text='Mark sold' onClick={markSold} />
+          <div className='action'>Archive</div>
         ) : (
-          <Button type='outline' text='Ask' onClick={ask} />
+          <div className='action'>
+            <HeartOutlineIcon size={16} /> Save
+          </div>
         )}
+        <div className='divider' />
+        <div className='action'>
+          <ShareIcon size={16} />
+          Share
+        </div>
       </div>
     </ActionBoxWrapper>
   )
 }
 
-export default ActionBox
+export default withRouter(ActionBox)

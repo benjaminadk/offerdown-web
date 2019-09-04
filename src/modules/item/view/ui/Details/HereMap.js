@@ -44,13 +44,13 @@ const HereMap = ({ location, latitude, longitude }) => {
     })
     map.addObject(circle)
 
-    const provider = map.getBaseLayer().getProvider()
-    var style = new H.map.Style(
-      'https://gist.githubusercontent.com/benjaminadk/cc373a716b7c3da97fde5db8270ff93c/raw/d4009efad24c65783269eaad7d86c1a1615d65bd/google.day.yaml',
-      'https://js.api.here.com/v3/3.1/styles/omv/'
-    )
+    // const provider = map.getBaseLayer().getProvider()
+    // var style = new H.map.Style(
+    //   'https://gist.githubusercontent.com/benjaminadk/cc373a716b7c3da97fde5db8270ff93c/raw/d4009efad24c65783269eaad7d86c1a1615d65bd/google.day.yaml',
+    //   'https://js.api.here.com/v3/3.1/styles/omv/'
+    // )
 
-    provider.setStyle(style)
+    // provider.setStyle(style)
 
     window.addEventListener('resize', () => map.getViewPort().resize())
 

@@ -7,7 +7,7 @@ import Condition from './Condition'
 import Description from './Description'
 import Location from './Location'
 import HereMap from './HereMap'
-import ActionBox from './ActionBox'
+import ActionBox from '../ActionBox'
 
 export const DetailsWrapper = styled.div`
   position: relative;

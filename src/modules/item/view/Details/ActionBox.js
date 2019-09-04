@@ -40,10 +40,38 @@ export const ActionBoxWrapper = styled.div`
   }
 `
 
-const ActionBox = ({ seller }) => {
+const ActionBox = ({ seller, history }) => {
   const { user } = useContext(AppContext)
 
   const isSeller = user && seller.id === user.id
+
+  function makeOffer() {
+    isUserLoggedIn()
+    // TODO
+    // make offer modal
+  }
+
+  function ask() {
+    isUserLoggedIn()
+    // TODO
+    // make ask modal
+  }
+
+  function promote() {
+    // TODO
+    // make promote item route
+  }
+
+  function markSold() {
+    // TODO
+    // make confirm sold modal
+  }
+
+  function isUserLoggedIn() {
+    if (!user) {
+      history.push('/login')
+    }
+  }
 
   return (
     <ActionBoxWrapper>
@@ -55,8 +83,16 @@ const ActionBox = ({ seller }) => {
             <FiveStar />
           </div>
         </div>
-        <Button type='solid' text={isSeller ? 'Sell faster' : 'Make offer'} />
-        <Button type='outline' text={isSeller ? 'Mark sold' : 'Ask'} />
+        {isSeller ? (
+          <Button type='solid' text='Sell faster' onClick={promote} />
+        ) : (
+          <Button type='solid' text='Make offer' onClick={makeOffer} />
+        )}
+        {isSeller ? (
+          <Button type='outline' text='Mark sold' onClick={markSold} />
+        ) : (
+          <Button type='outline' text='Ask' onClick={ask} />
+        )}
       </div>
     </ActionBoxWrapper>
   )

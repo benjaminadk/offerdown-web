@@ -1,6 +1,12 @@
 import styled, { keyframes } from 'styled-components'
 import { darken, lighten } from 'polished'
 
+export const FormWrapper = styled.main`
+  display: grid;
+  align-items: center;
+  justify-items: center;
+`
+
 export const Form = styled.form`
   width: 300px;
 `
@@ -56,7 +62,7 @@ export const Button = styled.button`
   margin-top: 20px;
   cursor: pointer;
   &:hover {
-    background-color: ${p => `${darken(0.1, p.theme.primary)}`};
+    background-color: ${p => `${darken(0.05, p.theme.primary)}`};
   }
   &:disabled {
     background-color: ${p => `${lighten(0.1, p.theme.primary)}`};

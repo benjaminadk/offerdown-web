@@ -23,12 +23,17 @@ export const formatEnum = str => {
     .join(' ')
 }
 
-export const formatCondition = str => {
-  let message
-  if (str === 'new') message = 'New (never used)'
-  else if (str === 'great') message = 'Used (normal wear)'
-  else if (str === 'reconditioned') message = 'Reconditioned (certified)'
-  else message = 'Used (junk)'
-
-  return message
+export const formatCondition = condition => {
+  switch (condition) {
+    case 'new':
+      return 'New (never used)'
+    case 'reconditioned':
+      return 'Reconditioned (certified)'
+    case 'great':
+      return 'Used (never opened)'
+    case 'good':
+      return 'Used (normal wear)'
+    default:
+      return 'Useed (noraml wear)'
+  }
 }

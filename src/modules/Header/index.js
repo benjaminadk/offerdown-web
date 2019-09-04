@@ -4,9 +4,7 @@ import styled from 'styled-components'
 import { LocationOn } from 'styled-icons/material/LocationOn'
 
 import { AppContext } from '../../App'
-import AuthContainer from '../auth/AuthContainer'
 import Navigation from './Navigation'
-// import { Media } from '../../styles/Media'
 
 const getGridTemplate = screen => {
   switch (screen) {
@@ -42,22 +40,18 @@ export const Brand = styled(Link)`
 `
 
 const Header = () => {
-  const { screen } = useContext(AppContext)
+  const { user, screen } = useContext(AppContext)
 
   return (
-    <AuthContainer>
-      {({ data }) => (
-        <HeaderWrapper screen={screen}>
-          <Brand to='/'>OfferDown</Brand>
-          <input />
-          <HeaderInput>
-            <LocationOn />
-            <input placeholder='My Location' />
-          </HeaderInput>
-          <Navigation user={data && data.me} />
-        </HeaderWrapper>
-      )}
-    </AuthContainer>
+    <HeaderWrapper screen={screen}>
+      <Brand to='/'>OfferDown</Brand>
+      <input />
+      <HeaderInput>
+        <LocationOn />
+        <input placeholder='My Location' />
+      </HeaderInput>
+      <Navigation user={user} />
+    </HeaderWrapper>
   )
 }
 

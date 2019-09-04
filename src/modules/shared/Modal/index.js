@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { usePosition } from '../../../utils/usePosition'
+
 export const ModalWrapper = styled.div.attrs(p => ({
   style: {
     top: p.position[1] + 'px',
@@ -25,10 +27,12 @@ export const Backdrop = styled.div.attrs(p => ({
   bottom: 0;
   left: 0;
   z-index: 6;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.85);
 `
 
-const Modal = ({ modalRef, show, position, children, onClose }) => {
+const Modal = ({ modalRef, show, children, onClose }) => {
+  const position = usePosition(modalRef.current)
+
   return (
     <>
       <ModalWrapper ref={modalRef} show={show} position={position}>

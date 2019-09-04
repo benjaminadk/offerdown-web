@@ -6,7 +6,7 @@ import SignupConnector from '../modules/signup/SignupConnector'
 import LoginConnector from '../modules/login/LoginConnector'
 import FindItemsConnector from '../modules/item/find/FindItemsConnector'
 import ViewItemConnector from '../modules/item/view/ViewItemConnector'
-import TextPage from '../modules/TextPage'
+import TextPage from '../modules/shared/TextPage'
 
 export const Main = styled.main`
   min-height: calc(100vh - ${p => p.theme.headerHeight});

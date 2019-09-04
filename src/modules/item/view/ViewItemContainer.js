@@ -14,6 +14,11 @@ const viewItemQuery = gql`
       location
       latitude
       longitude
+      seller {
+        id
+        name
+        image
+      }
     }
   }
 `

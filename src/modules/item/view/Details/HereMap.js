@@ -46,7 +46,7 @@ const HereMap = ({ location, latitude, longitude }) => {
 
     const provider = map.getBaseLayer().getProvider()
     var style = new H.map.Style(
-      'https://gist.githubusercontent.com/benjaminadk/cc373a716b7c3da97fde5db8270ff93c/raw/f5ccc0b5460404917763f4a1d5823f2dfe887598/google.day.yaml',
+      'https://gist.githubusercontent.com/benjaminadk/cc373a716b7c3da97fde5db8270ff93c/raw/d4009efad24c65783269eaad7d86c1a1615d65bd/google.day.yaml',
       'https://js.api.here.com/v3/3.1/styles/omv/'
     )
 

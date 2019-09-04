@@ -7,8 +7,10 @@ import Condition from './Condition'
 import Description from './Description'
 import Location from './Location'
 import HereMap from './HereMap'
+import ActionBox from './ActionBox'
 
 export const DetailsWrapper = styled.div`
+  position: relative;
   width: 100%;
   padding: 0 48px;
   margin-top: 16px;
@@ -19,8 +21,9 @@ export const Container = styled.div`
 `
 
 export const Hr = styled.hr`
+  color: ${p => p.theme.grey[2]};
   border: 0;
-  border-top: 1px solid ${p => p.theme.grey[5]};
+  border-top: 1px solid;
   margin: 20px auto;
 `
 
@@ -34,8 +37,10 @@ const Details = ({ item }) => {
     condition,
     location,
     latitude,
-    longitude
+    longitude,
+    seller
   } = item
+
   return (
     <DetailsWrapper>
       <Container>
@@ -48,6 +53,7 @@ const Details = ({ item }) => {
         <HereMap location={location} latitude={latitude} longitude={longitude} />
         <Hr />
       </Container>
+      <ActionBox seller={seller} />
     </DetailsWrapper>
   )
 }

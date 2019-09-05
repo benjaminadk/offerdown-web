@@ -69,16 +69,16 @@ const CreateOfferForm = withFormik({
 
   handleSubmit: async (
     values,
-    { props: { match, submit, onFinish }, setErrors, setSubmitting }
+    { props: { match, submit, onFinish }, setErrors, setSubmitting, resetForm }
   ) => {
-    const offer = { type: 'BUYING', text: values.text, itemId: match.params.itemId }
-    const errors = await submit(offer)
+    const errors = await submit({ text: values.text, itemId: match.params.itemId })
     setSubmitting(false)
 
     if (errors) {
       setErrors(normalizeErrors(errors))
     } else {
-      onFinish('/')
+      resetForm()
+      onFinish()
     }
   },
 

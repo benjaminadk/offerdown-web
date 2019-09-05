@@ -1,22 +1,21 @@
 import { useMutation } from 'react-apollo'
-import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 
 const createOffer = gql`
-  mutation CreateOffer($offer: OfferInput!) {
-    createOffer(offer: $offer) {
+  mutation CreateOffer($text: String!, $itemId: ID!) {
+    createOffer(text: $text, itemId: $itemId) {
       path
       message
     }
   }
 `
 
-const CreateOfferContainer = ({ history, children }) => {
+const CreateOfferContainer = ({ children }) => {
   const [mutate] = useMutation(createOffer)
 
-  async function submit(offer) {
+  async function submit(variables) {
     const { data } = await mutate({
-      variables: { offer }
+      variables
     })
     if (data) {
       return data.createOffer
@@ -25,11 +24,7 @@ const CreateOfferContainer = ({ history, children }) => {
     return null
   }
 
-  function onFinish() {
-    history.push('/')
-  }
-
-  return children({ submit, onFinish })
+  return children({ submit })
 }
 
-export default withRouter(CreateOfferContainer)
+export default CreateOfferContainer

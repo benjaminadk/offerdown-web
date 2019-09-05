@@ -1,6 +1,7 @@
 import React, { useState, useContext, useRef } from 'react'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
+import { Close } from 'styled-icons/material/Close'
 
 import CreateOfferContainer from './CreateOfferContainer'
 import { AppContext } from '../../../../../../App'
@@ -22,35 +23,64 @@ export const CreateOfferWrapper = styled.div`
       line-height: 30px;
       text-align: center;
     }
+    p {
+      color: ${p => p.theme.primary};
+      text-align: center;
+      cursor: pointer;
+    }
+    svg {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      fill: ${p => p.theme.grey[5]};
+      cursor: pointer;
+    }
   }
 `
 
 const CreateOffer = ({ history, match }) => {
-  const modalRef = useRef(null)
+  const modalRefForm = useRef(null)
+  const modalRefSuccess = useRef(null)
+
   const { user } = useContext(AppContext)
-  const [show, setShow] = useState(false)
+  const [showForm, setShowForm] = useState(false)
+  const [showSuccess, setShowSuccess] = useState(false)
 
   function onAsk() {
+    setShowSuccess(false)
     if (user) {
-      setShow(true)
+      setShowForm(true)
     } else {
       history.push('/login')
     }
   }
 
+  function onFinish() {
+    setShowForm(false)
+    setShowSuccess(true)
+  }
+
   return (
     <>
       <Button variant='outline' text='Ask' onClick={onAsk} />
-      <Modal modalRef={modalRef} show={show} onClose={() => setShow(false)}>
+      <Modal modalRef={modalRefForm} show={showForm} onClose={() => setShowForm(false)}>
         <CreateOfferWrapper>
           <header>
             <h4>Ask a question</h4>
+            <Close size={30} onClick={() => setShowForm(false)} />
           </header>
           <CreateOfferContainer>
-            {({ submit, onFinish }) => (
-              <CreateOfferForm submit={submit} onFinish={onFinish} match={match} />
-            )}
+            {({ submit }) => <CreateOfferForm submit={submit} onFinish={onFinish} match={match} />}
           </CreateOfferContainer>
+        </CreateOfferWrapper>
+      </Modal>
+      <Modal modalRef={modalRefSuccess} show={showSuccess} onClose={() => setShowSuccess(false)}>
+        <CreateOfferWrapper>
+          <header>
+            <h4>Message sent</h4>
+            <p onClick={onAsk}>Write another message</p>
+            <Close size={30} onClick={() => setShowSuccess(false)} />
+          </header>
         </CreateOfferWrapper>
       </Modal>
     </>

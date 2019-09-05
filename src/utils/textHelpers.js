@@ -25,15 +25,17 @@ export const formatEnum = str => {
 
 export const formatCondition = condition => {
   switch (condition) {
-    case 'new':
+    case 'NEW':
       return 'New (never used)'
-    case 'reconditioned':
+    case 'RECONDITIONED':
       return 'Reconditioned (certified)'
-    case 'great':
+    case 'GREAT':
       return 'Used (never opened)'
-    case 'good':
+    case 'GOOD':
       return 'Used (normal wear)'
+    case 'POOR':
+      return 'Junk'
     default:
-      return 'Useed (noraml wear)'
+      return 'Used (normal wear)'
   }
 }

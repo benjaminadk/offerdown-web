@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 
-export function usePosition(element) {
+export function usePosition(element, show) {
   const [position, setPosition] = useState([0, 0])
 
   useEffect(() => {
-    if (!element) return
+    if (!element || !show) return
 
     const { innerWidth, innerHeight } = window
     const { clientWidth, clientHeight } = element
@@ -22,7 +22,7 @@ export function usePosition(element) {
     return () => {
       window.removeEventListener('resize', onResize)
     }
-  }, [element])
+  }, [element, show])
 
   return position
 }

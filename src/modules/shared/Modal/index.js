@@ -31,7 +31,7 @@ export const Backdrop = styled.div.attrs(p => ({
 `
 
 const Modal = ({ modalRef, show, children, onClose }) => {
-  const position = usePosition(modalRef.current)
+  const position = usePosition(modalRef.current, show)
 
   return (
     <>

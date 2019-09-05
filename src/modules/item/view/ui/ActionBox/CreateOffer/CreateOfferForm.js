@@ -1,8 +1,10 @@
 import React from 'react'
 import { withFormik } from 'formik'
+import * as yup from 'yup'
 import styled from 'styled-components'
 
 import Button from '../../../../../shared/Button'
+import { normalizeErrors, formatError } from '../../../../../../utils/errorHelpers'
 
 export const Form = styled.form`
   display: flex;
@@ -29,10 +31,8 @@ export const Form = styled.form`
   }
 `
 
-const errorMessage = 'Required field is not filled in or contains invalid characters.'
-
 const InnerForm = props => {
-  const { values, touched, errors, handleChange, handleBlur, handleSubmit } = props
+  const { values, touched, errors, isSubmitting, handleChange, handleBlur, handleSubmit } = props
   let error = Boolean(errors.text && touched.text)
 
   return (
@@ -46,23 +46,43 @@ const InnerForm = props => {
         onChange={handleChange}
         onBlur={handleBlur}
       />
-      <div id='error'>{errors.text}</div>
-      <Button type='submit' variant='solid' text='Send' />
+      <div id='error'>{formatError(errors.text)}</div>
+      <Button type='submit' variant='solid' text='Send' disabled={isSubmitting} />
     </Form>
   )
 }
 
-const CreateMessageForm = withFormik({
+const textRequired = 'Message is a required field'
+const textMax = 'Message cannot be longer than 500 characters'
+
+const textSchema = yup.object().shape({
+  text: yup
+    .string()
+    .max(500, textMax)
+    .required(textRequired)
+})
+
+const CreateOfferForm = withFormik({
   mapPropsToValues: () => ({ text: '' }),
 
-  handleSubmit: async (values, { props: { match, submit, onFinish }, setSubmitting }) => {
-    const message = { text: values.text, itemId: match.params.itemId }
-    const res = await submit(message)
-    console.log(res)
-    onFinish()
+  validationSchema: textSchema,
+
+  handleSubmit: async (
+    values,
+    { props: { match, submit, onFinish }, setErrors, setSubmitting }
+  ) => {
+    const offer = { type: 'BUYING', text: values.text, itemId: match.params.itemId }
+    const errors = await submit(offer)
+    setSubmitting(false)
+
+    if (errors) {
+      setErrors(normalizeErrors(errors))
+    } else {
+      onFinish('/')
+    }
   },
 
-  displayName: 'CreateMessageForm'
+  displayName: 'CreateOfferForm'
 })(InnerForm)
 
-export default CreateMessageForm
+export default CreateOfferForm

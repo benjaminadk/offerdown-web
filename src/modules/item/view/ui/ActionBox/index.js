@@ -7,7 +7,7 @@ import { Heart as HeartOutlineIcon } from 'styled-icons/boxicons-regular/Heart'
 import { AppContext } from '../../../../../App'
 import FiveStar from '../../../../shared/FiveStar'
 import Button from '../../../../shared/Button'
-import CreateMessage from './CreateMessage'
+import CreateOffer from './CreateOffer'
 
 export const ActionBoxWrapper = styled.div`
   position: absolute;
@@ -114,7 +114,7 @@ const ActionBox = ({ seller, history }) => {
         {isSeller ? (
           <Button variant='outline' text='Mark sold' onClick={markSold} />
         ) : (
-          <CreateMessage />
+          <CreateOffer />
         )}
       </div>
       <div className='footer'>

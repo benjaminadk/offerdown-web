@@ -34,7 +34,7 @@ const HereMap = ({ location, latitude, longitude }) => {
 
     const defaultLayers = platform.createDefaultLayers()
     const map = new H.Map(mapRef.current, defaultLayers.vector.normal.map, {
-      zoom: 11,
+      zoom: 10,
       center: { lat: latitude, lng: longitude },
       pixelRatio: devicePixelRatio || 1
     })

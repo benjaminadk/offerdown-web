@@ -2,13 +2,13 @@ import React, { useState, useContext, useRef } from 'react'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 
-import CreateMessageContainer from './CreateMessageContainer'
+import CreateOfferContainer from './CreateOfferContainer'
 import { AppContext } from '../../../../../../App'
 import Modal from '../../../../../shared/Modal'
 import Button from '../../../../../shared/Button'
-import CreateMessageForm from './CreateMessageForm'
+import CreateOfferForm from './CreateOfferForm'
 
-export const CreateMessageWrapper = styled.div`
+export const CreateOfferWrapper = styled.div`
   min-width: 350px;
   background-color: ${p => p.theme.white};
   border-radius: 5px;
@@ -25,7 +25,7 @@ export const CreateMessageWrapper = styled.div`
   }
 `
 
-const CreateMessage = ({ history, match }) => {
+const CreateOffer = ({ history, match }) => {
   const modalRef = useRef(null)
   const { user } = useContext(AppContext)
   const [show, setShow] = useState(false)
@@ -42,19 +42,19 @@ const CreateMessage = ({ history, match }) => {
     <>
       <Button variant='outline' text='Ask' onClick={onAsk} />
       <Modal modalRef={modalRef} show={show} onClose={() => setShow(false)}>
-        <CreateMessageWrapper>
+        <CreateOfferWrapper>
           <header>
             <h4>Ask a question</h4>
           </header>
-          <CreateMessageContainer>
+          <CreateOfferContainer>
             {({ submit, onFinish }) => (
-              <CreateMessageForm submit={submit} onFinish={onFinish} match={match} />
+              <CreateOfferForm submit={submit} onFinish={onFinish} match={match} />
             )}
-          </CreateMessageContainer>
-        </CreateMessageWrapper>
+          </CreateOfferContainer>
+        </CreateOfferWrapper>
       </Modal>
     </>
   )
 }
 
-export default withRouter(CreateMessage)
+export default withRouter(CreateOffer)

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 export const TitleWrapper = styled.header`
+  margin-top: 50px;
   h3 {
     font-size: 30px;
     font-weight: 900;

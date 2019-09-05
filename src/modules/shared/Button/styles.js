@@ -1,4 +1,4 @@
-import { lighten, darken } from 'polished'
+import { darken } from 'polished'
 import styled from 'styled-components'
 
 export const ButtonBase = styled.button`

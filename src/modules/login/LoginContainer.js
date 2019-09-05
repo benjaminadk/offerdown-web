@@ -28,13 +28,16 @@ const LoginContainer = props => {
   }
 
   function onFinish() {
+    console.log(props)
     const {
       history,
       location: { state }
     } = props
     if (state && state.next) {
-      return history.push(state.next)
+      history.push(state.next)
+      return
     }
+
     history.push('/')
   }
 

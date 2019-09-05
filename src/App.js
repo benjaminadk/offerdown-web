@@ -23,6 +23,10 @@ const App = () => {
   return (
     <Authentication>
       {({ loading, data }) => {
+        if (loading) {
+          // put loading screen here
+          return null
+        }
         return (
           <AppContext.Provider value={{ user: data.me, screen, platform }}>
             <BrowserRouter>

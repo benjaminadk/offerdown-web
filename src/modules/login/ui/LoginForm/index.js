@@ -46,12 +46,12 @@ const LoginForm = withFormik({
 
   validateOnChange: false,
 
-  handleSubmit: async (values, { props, setErrors, setSubmitting }) => {
-    const errors = await props.submit(values)
+  handleSubmit: async (values, { props: { submit, onFinish }, setErrors, setSubmitting }) => {
+    const errors = await submit(values)
     if (errors) {
       setErrors(normalizeErrors(errors))
     } else {
-      props.onFinish()
+      onFinish()
     }
     setSubmitting(false)
   },

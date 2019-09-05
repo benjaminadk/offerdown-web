@@ -26,6 +26,6 @@ export const ButtonOutline = styled(ButtonBase)`
   color: ${p => p.theme.primary};
   border: 1px solid currentColor;
   &:hover {
-    background-color: ${p => `${lighten(0.6, p.theme.primary)}`};
+    background-color: ${p => p.theme.hoverPrimaryLight};
   }
 `

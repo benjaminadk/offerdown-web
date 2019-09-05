@@ -1,9 +1,12 @@
+import { lighten } from 'polished'
+
 export const theme = {
   primary: '#00ab80',
   secondary: '',
   black: '#4a4a4a',
   white: '#ffffff',
   error: '#e05666',
+  hoverPrimaryLight: lighten(0.6, '#00ab80'),
   grey: [
     '#FAFAFA',
     '#F2F2F2',

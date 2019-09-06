@@ -7,7 +7,7 @@ import SignupConnector from '../modules/signup/SignupConnector'
 import LoginConnector from '../modules/login/LoginConnector'
 import FindItemsConnector from '../modules/item/find/FindItemsConnector'
 import ViewItemConnector from '../modules/item/view/ViewItemConnector'
-import SellingConnector from '../modules/selling/SellingConnector'
+import SellingConnector from '../modules/offer/SellingConnector'
 import TextPage from '../modules/app/TextPage'
 
 export const Main = styled.main`

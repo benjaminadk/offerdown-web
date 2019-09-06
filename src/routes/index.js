@@ -7,7 +7,7 @@ import SignupConnector from '../modules/signup/SignupConnector'
 import LoginConnector from '../modules/login/LoginConnector'
 import FindItemsConnector from '../modules/item/find/FindItemsConnector'
 import ViewItemConnector from '../modules/item/view/ViewItemConnector'
-import OfferConnector from '../modules/offer/OfferConnector'
+import SellingConnector from '../modules/selling/SellingConnector'
 import TextPage from '../modules/app/TextPage'
 
 export const Main = styled.main`
@@ -23,8 +23,8 @@ const Routes = () => {
         <Route exact path='/login' component={LoginConnector} />
         <Route exact path='/item/:itemId' component={ViewItemConnector} />
         <Route path='/m' component={TextPage} />
-        <AuthRoute exact path='/selling' component={OfferConnector} />
-        <AuthRoute exact path='/buying' component={OfferConnector} />
+        <AuthRoute exact path='/selling' component={SellingConnector} />
+        {/* <AuthRoute exact path='/buying' component={SellingConnector} /> */}
       </Switch>
     </Main>
   )

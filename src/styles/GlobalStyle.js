@@ -16,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     color: ${theme.black};
     font-family: 'Lato', sans-serif;
     line-height: 24px;
+    overflow-x: hidden;
     overflow-y: scroll;
     user-select: none;
   }

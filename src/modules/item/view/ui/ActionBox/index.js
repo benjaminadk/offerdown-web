@@ -11,7 +11,7 @@ import CreateOffer from './CreateOffer'
 
 export const ActionBoxWrapper = styled.div`
   position: absolute;
-  top: -68px;
+  top: 330px;
   right: 20px;
   z-index: 4;
   width: 300px;
@@ -114,7 +114,7 @@ const ActionBox = ({ seller, history }) => {
         {isSeller ? (
           <Button variant='outline' text='Mark sold' onClick={markSold} />
         ) : (
-          <CreateOffer />
+          <CreateOffer sellerId={seller.id} />
         )}
       </div>
       <div className='footer'>

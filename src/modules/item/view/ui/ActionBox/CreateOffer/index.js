@@ -38,7 +38,7 @@ export const CreateOfferWrapper = styled.div`
   }
 `
 
-const CreateOffer = ({ history, match }) => {
+const CreateOffer = ({ sellerId, history, match }) => {
   const modalRefForm = useRef(null)
   const modalRefSuccess = useRef(null)
 
@@ -70,7 +70,14 @@ const CreateOffer = ({ history, match }) => {
             <Close size={30} onClick={() => setShowForm(false)} />
           </header>
           <CreateOfferContainer>
-            {({ submit }) => <CreateOfferForm submit={submit} onFinish={onFinish} match={match} />}
+            {({ submit }) => (
+              <CreateOfferForm
+                match={match}
+                sellerId={sellerId}
+                submit={submit}
+                onFinish={onFinish}
+              />
+            )}
           </CreateOfferContainer>
         </CreateOfferWrapper>
       </Modal>

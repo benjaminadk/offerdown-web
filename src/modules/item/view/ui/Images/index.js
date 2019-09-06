@@ -14,7 +14,7 @@ const Images = ({ name, images }) => {
   const imagesRef = useRef(null)
 
   useEffect(() => {
-    async function initialize() {
+    async function onResize() {
       await new Promise(resolve => setTimeout(resolve, 100))
       const { innerWidth } = window
       const { clientWidth } = imagesRef.current
@@ -25,7 +25,13 @@ const Images = ({ name, images }) => {
         setOffsetX((innerWidth - clientWidth) / 2)
       }
     }
-    initialize()
+
+    onResize()
+    window.addEventListener('resize', onResize)
+
+    return () => {
+      window.removeEventListener('resize', onResize)
+    }
   }, [])
 
   function onArrowClick(direction) {

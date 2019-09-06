@@ -2,8 +2,8 @@ import { useMutation } from 'react-apollo'
 import gql from 'graphql-tag'
 
 const createOffer = gql`
-  mutation CreateOffer($text: String!, $itemId: ID!) {
-    createOffer(text: $text, itemId: $itemId) {
+  mutation CreateOffer($itemId: ID!, $sellerId: ID!, $text: String!) {
+    createOffer(itemId: $itemId, sellerId: $sellerId, text: $text) {
       path
       message
     }

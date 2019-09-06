@@ -7,7 +7,6 @@ import Condition from './Condition'
 import Description from './Description'
 import Location from './Location'
 import HereMap from './HereMap'
-import ActionBox from '../ActionBox'
 
 export const DetailsWrapper = styled.div`
   position: relative;
@@ -37,8 +36,7 @@ const Details = ({ item }) => {
     condition,
     location,
     latitude,
-    longitude,
-    seller
+    longitude
   } = item
 
   return (
@@ -53,7 +51,6 @@ const Details = ({ item }) => {
         <HereMap location={location} latitude={latitude} longitude={longitude} />
         <Hr />
       </Container>
-      <ActionBox seller={seller} />
     </DetailsWrapper>
   )
 }

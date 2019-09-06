@@ -24,7 +24,7 @@ const Routes = () => {
         <Route exact path='/login' component={LoginConnector} />
         <Route exact path='/item/:itemId' component={ViewItemConnector} />
         <Route path='/m' component={TextPage} />
-        <AuthRoute path='/offers' component={Offers} />
+        <AuthRoute path='/selling' component={Offers} />
       </Switch>
     </Main>
   )

@@ -24,9 +24,9 @@ const viewItemQuery = gql`
   }
 `
 
-const ViewItemContainer = props => {
-  const item = useQuery(viewItemQuery, { variables: { id: props.itemId } })
-  return props.children(item)
+const ViewItemContainer = ({ children, itemId }) => {
+  const payload = useQuery(viewItemQuery, { variables: { id: itemId } })
+  return children(payload)
 }
 
 ViewItemContainer.propTypes = {

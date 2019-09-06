@@ -11,7 +11,7 @@ const signupMutation = gql`
   }
 `
 
-const SignupContainer = props => {
+const SignupContainer = ({ children, history }) => {
   const [mutate] = useMutation(signupMutation)
 
   async function submit(values) {
@@ -25,12 +25,12 @@ const SignupContainer = props => {
   }
 
   function onFinish() {
-    props.history.push('/m/confirm-email', {
+    history.push('/m/confirm-email', {
       message: 'check your email to confirm your account'
     })
   }
 
-  return props.children({ submit, onFinish })
+  return children({ submit, onFinish })
 }
 
 export default withRouter(SignupContainer)

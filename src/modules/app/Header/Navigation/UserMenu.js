@@ -5,7 +5,7 @@ import { ChevronUp } from 'styled-icons/boxicons-regular/ChevronUp'
 import { UserLink, UserMenuWrapper, UserMenuItem, UserMenuLink } from './styles'
 
 const mainMenuItems = [
-  { text: 'My offers', to: '/offers' },
+  { text: 'My offers', to: '/selling' },
   { text: 'My boards', to: '/boards' },
   { text: 'My profile', to: '/profile' },
   { text: 'My account', to: '/acount' },

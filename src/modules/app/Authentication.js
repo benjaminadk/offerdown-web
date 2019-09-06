@@ -12,9 +12,9 @@ export const meQuery = gql`
   }
 `
 
-const AuthContainer = props => {
+const AuthContainer = ({ children }) => {
   const payload = useQuery(meQuery)
-  return props.children(payload)
+  return children(payload)
 }
 
 export default AuthContainer

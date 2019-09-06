@@ -13,9 +13,9 @@ const findItemsQuery = gql`
   }
 `
 
-const FindItemsContainer = props => {
-  const items = useQuery(findItemsQuery)
-  return props.children(items)
+const FindItemsContainer = ({ children }) => {
+  const payload = useQuery(findItemsQuery)
+  return children(payload)
 }
 
 export default FindItemsContainer

@@ -13,9 +13,9 @@ const loginMutation = gql`
   }
 `
 
-const LoginContainer = props => {
+const LoginContainer = ({ children, match, history, location }) => {
   const [mutate] = useMutation(loginMutation)
-
+  console.log(match, location)
   async function submit(values) {
     const { data } = await mutate({
       variables: values,
@@ -28,11 +28,7 @@ const LoginContainer = props => {
   }
 
   function onFinish() {
-    console.log(props)
-    const {
-      history,
-      location: { state }
-    } = props
+    const { state } = location
     if (state && state.next) {
       history.push(state.next)
       return
@@ -41,7 +37,7 @@ const LoginContainer = props => {
     history.push('/')
   }
 
-  return props.children({ submit, onFinish })
+  return children({ submit, onFinish })
 }
 
 export default withRouter(LoginContainer)

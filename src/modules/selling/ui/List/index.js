@@ -1,8 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Link, NavLink, withRouter } from 'react-router-dom'
-
-import { AppContext } from '../../../../App'
+import { Link, withRouter } from 'react-router-dom'
+import groupby from 'lodash.groupby'
 
 export const ListWrapper = styled.div`
   min-height: ${p => `calc(100vh - ${p.theme.headerHeight} - 64px - 45px)`};
@@ -69,46 +68,27 @@ export const Avatar = styled.div.attrs(p => ({
   border-radius: 50%;
 `
 
-const OfferList = ({ offers, location }) => {
-  const { user } = useContext(AppContext)
+const List = ({ offers }) => {
+  const [data, setData] = useState([])
 
-  // function renderUsers(messages) {
-  //   if (location.pathname === '/selling') {
-  //     const set = new Set()
-  //     for (let message of messages) {
-  //       set.add(message.user.image)
-  //     }
-  //     set.delete(user.image)
-  //     const images = Array.from(set)
-  //     const extra = images.length - 5
-  //     return (
-  //       <>
-  //         {images.map((image, i) => (
-  //           <Avatar key={image} index={i} image={image} />
-  //         ))}
-  //         {extra > 0 && <div className='extra'>+ {extra}</div>}
-  //       </>
-  //     )
-  //   } else {
-  //     return (
-  //       <>
-  //         <Avatar />
-  //         <div>Seller Name</div>
-  //       </>
-  //     )
-  //   }
-  // }
+  useEffect(() => {
+    setData(Object.values(groupby(offers, offer => offer.item.id)))
+  }, [])
 
   return (
     <ListWrapper>
-      {offers.map(offer => {
-        const { id, item } = offer
+      {data.map(datum => {
+        const { id, item } = datum[0]
         return (
-          <ListItem key={id} to={`/item/${item.id}/discussion/${offer.id}`} image={item.images[0]}>
+          <ListItem key={id} to={`/selling/discussion/${id}`} image={item.images[0]}>
             <div className='image'></div>
             <div className='info'>
               <div className='name'>{item.name}</div>
-              <div className='users'></div>
+              <div className='users'>
+                {datum.map((offer, i) => (
+                  <Avatar key={offer.buyer.image} index={i} image={offer.buyer.image} />
+                ))}
+              </div>
             </div>
             <div className='archive'>Archive</div>
           </ListItem>
@@ -118,4 +98,4 @@ const OfferList = ({ offers, location }) => {
   )
 }
 
-export default withRouter(OfferList)
+export default withRouter(List)

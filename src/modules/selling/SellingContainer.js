@@ -11,6 +11,9 @@ export const findSellingOffersQuery = gql`
         name
         images
       }
+      buyer {
+        image
+      }
     }
   }
 `

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { ChevronDown } from 'styled-icons/boxicons-regular/ChevronDown'
 import { ChevronUp } from 'styled-icons/boxicons-regular/ChevronUp'
 
+import SignoutContainer from '../../../signout/SignoutContainer'
 import { UserLink, UserMenuWrapper, UserMenuItem, UserMenuLink } from './styles'
 
 const mainMenuItems = [
@@ -39,9 +40,9 @@ const UserMenu = ({ user }) => {
           {mainMenuItems.map(item => {
             if (item.text === 'Log out') {
               return (
-                <UserMenuItem key={item.to} onClick={() => {}}>
-                  {item.text}
-                </UserMenuItem>
+                <SignoutContainer key={item.to}>
+                  {({ signout }) => <UserMenuItem onClick={signout}>{item.text}</UserMenuItem>}
+                </SignoutContainer>
               )
             }
             return (

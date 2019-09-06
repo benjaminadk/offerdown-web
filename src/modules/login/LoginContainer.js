@@ -15,7 +15,7 @@ const loginMutation = gql`
 
 const LoginContainer = ({ children, match, history, location }) => {
   const [mutate] = useMutation(loginMutation)
-  console.log(match, location)
+
   async function submit(values) {
     const { data } = await mutate({
       variables: values,

@@ -2,19 +2,22 @@ import { useQuery } from 'react-apollo'
 import gql from 'graphql-tag'
 import { withRouter } from 'react-router-dom'
 
-export const offersQuery = gql`
-  query OffersQuery($type: OfferType!) {
-    id
-    item {
+export const findOffersQuery = gql`
+  query FindOffersQuery($type: OfferType!) {
+    findOffers(type: $type) {
       id
-      name
-      images
+      item {
+        id
+        name
+        images
+      }
     }
   }
 `
 
 const SellingContainer = ({ children, location }) => {
-  const payload = useQuery(offersQuery, { variables: { type: location.pathname.toUpperCase() } })
+  const type = location.pathname.toUpperCase().slice(1)
+  const payload = useQuery(findOffersQuery, { variables: { type } })
   return children(payload)
 }
 

@@ -26,5 +26,6 @@ export const theme = {
   ],
   headerHeight: '68px',
   headerBackground: 'linear-gradient(90deg, #00ab80, #00a980 50%, #026d6d)',
+  lightBorder: '1px solid #D9D8D8',
   modalShadow: '0 2px 9px 0 rgba(74,74,74,0.20)'
 }

@@ -11,6 +11,12 @@ export const findOffersQuery = gql`
         name
         images
       }
+      messages {
+        user {
+          id
+          image
+        }
+      }
     }
   }
 `

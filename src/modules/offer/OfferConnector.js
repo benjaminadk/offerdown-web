@@ -5,10 +5,7 @@ import OfferContainer from './OfferContainer'
 import OfferList from './ui/OfferList'
 
 export const OfferConnectorWrapper = styled.div`
-  max-width: 960px;
-  margin: 0 auto;
-  border: ${p => p.theme.lightBorder};
-  border-top: 0;
+  background-color: ${p => p.theme.grey[0]};
 `
 
 const OfferConnector = () => {

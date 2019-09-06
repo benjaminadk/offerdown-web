@@ -19,7 +19,7 @@ export const ActionBoxWrapper = styled.div`
     display: flex;
     flex-direction: column;
     background-color: ${p => p.theme.white};
-    border: ${p => p.theme.lightBorder};
+    border: ${p => p.theme.borderLight};
     border-radius: 5px;
     padding: 16px;
     .seller {

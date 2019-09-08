@@ -3,12 +3,11 @@ import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { AppContext } from '../../App'
-import SellingDiscussionContainer from './SellingDiscussionContainer'
-import Header from './ui/Header'
-import LeftColumn from './ui/LeftColumn'
-import MiddleColumn from './ui/MiddleColumn'
+import BuyingDiscussionContainer from './BuyingDiscussionContainer'
+import Header from '../selling-discussion/ui/Header'
+import MiddleColumn from '../selling-discussion/ui/MiddleColumn'
 
-export const SellingDiscussionConnectorWrapper = styled.div`
+export const BuyingDiscussionConnectorWrapper = styled.div`
   background-color: ${p => p.theme.grey[0]};
   .content {
     max-width: calc(100vw - 96px);
@@ -18,47 +17,46 @@ export const SellingDiscussionConnectorWrapper = styled.div`
     border-top: 0;
     .main {
       display: grid;
-      grid-template-columns: 1fr 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
     }
   }
 `
 
-const SellingChatConnector = ({ match, history }) => {
+const BuyingDiscussionConnector = ({ match, history }) => {
   const { user } = useContext(AppContext)
 
   return (
-    <SellingDiscussionContainer>
+    <BuyingDiscussionContainer>
       {({ loading, data }) => {
         if (loading) {
           return null
         }
 
-        const offers = data.findSellingOffersByItemId
+        const offers = data.findBuyingOffersByItemId
 
         if (!offers) {
           return history.push('/error/404')
         }
-        if (offers[0].seller.id !== user.id) {
+        if (offers[0].buyer.id !== user.id) {
           return history.push('/error/401')
         }
 
         const offer = offers.find(offer => offer.id === match.params.offerId)
 
         return (
-          <SellingDiscussionConnectorWrapper>
+          <BuyingDiscussionConnectorWrapper>
             <div className='content'>
               <Header />
               <div className='main'>
-                <LeftColumn offers={offers} item={offer.item} />
-                <MiddleColumn otherUser={offer.buyer} />
-                <div>col 3</div>
+                <MiddleColumn otherUser={offer.seller} />
+                <div>col 2</div>
               </div>
             </div>
-          </SellingDiscussionConnectorWrapper>
+          </BuyingDiscussionConnectorWrapper>
         )
       }}
-    </SellingDiscussionContainer>
+    </BuyingDiscussionContainer>
   )
 }
 
-export default withRouter(SellingChatConnector)
+export default withRouter(BuyingDiscussionConnector)

@@ -2,9 +2,9 @@ import { useQuery } from 'react-apollo'
 import gql from 'graphql-tag'
 import { withRouter } from 'react-router-dom'
 
-export const findSellingOffersByItemId = gql`
-  query FindSellingOffersByItemId($itemId: ID!) {
-    findSellingOffersByItemId(itemId: $itemId) {
+export const findBuyingOffersByItemId = gql`
+  query FindBuyingOffersByItemId($itemId: ID!) {
+    findBuyingOffersByItemId(itemId: $itemId) {
       id
       item {
         id
@@ -36,11 +36,11 @@ export const findSellingOffersByItemId = gql`
   }
 `
 
-const SellingDiscussionContainer = ({ children, match }) => {
-  const payload = useQuery(findSellingOffersByItemId, {
+const BuyingDiscussionContainer = ({ children, match }) => {
+  const payload = useQuery(findBuyingOffersByItemId, {
     variables: { itemId: match.params.itemId }
   })
   return children(payload)
 }
 
-export default withRouter(SellingDiscussionContainer)
+export default withRouter(BuyingDiscussionContainer)

@@ -1,6 +1,5 @@
 import { useQuery } from 'react-apollo'
 import gql from 'graphql-tag'
-import { withRouter } from 'react-router-dom'
 
 export const findSellingOffersQuery = gql`
   query FindSellingOffersQuery {
@@ -23,4 +22,4 @@ const SellingContainer = ({ children }) => {
   return children(payload)
 }
 
-export default withRouter(SellingContainer)
+export default SellingContainer

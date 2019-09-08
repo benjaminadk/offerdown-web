@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -13,15 +12,14 @@ export const Header = styled.div`
     line-height: 32px;
   }
 `
+export const HeaderLink = styled(Link)`
+  color: ${p => p.theme.primary};
+  font-weight: 700;
+`
 
 export const Tabs = styled.div`
   display: flex;
   border-bottom: ${p => p.theme.borderLight};
-`
-
-export const HeaderLink = styled(Link)`
-  color: ${p => p.theme.primary};
-  font-weight: 700;
 `
 
 export const TabLink = styled(NavLink).attrs(p => ({
@@ -32,20 +30,3 @@ export const TabLink = styled(NavLink).attrs(p => ({
   color: ${p => p.theme.primary};
   padding: 8px 16px;
 `
-
-const Navigation = () => {
-  return (
-    <>
-      <Header>
-        <h4>My offers</h4>
-        <HeaderLink to='/archive/selling'>View archive</HeaderLink>
-      </Header>
-      <Tabs>
-        <TabLink to='/selling'>Selling</TabLink>
-        <TabLink to='/buying'>Buying</TabLink>
-      </Tabs>
-    </>
-  )
-}
-
-export default Navigation

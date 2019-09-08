@@ -9,6 +9,8 @@ import FindItemsConnector from '../modules/item/find/FindItemsConnector'
 import ViewItemConnector from '../modules/item/view/ViewItemConnector'
 import SellingConnector from '../modules/selling/SellingConnector'
 import SellingDiscussionConnector from '../modules/selling-discussion/SellingDiscussionConnector'
+import BuyingConnector from '../modules/buying/BuyingConnector'
+import BuyingDiscussionConnector from '../modules/buying-discussion/BuyingDiscussionConnector'
 import TextPage from '../modules/app/TextPage'
 
 export const Main = styled.main`
@@ -29,6 +31,12 @@ const Routes = () => {
           exact
           path='/selling/:itemId/discussion/:offerId'
           component={SellingDiscussionConnector}
+        />
+        <AuthRoute exact path='/buying' component={BuyingConnector} />
+        <AuthRoute
+          exact
+          path='/buying/:itemId/discussion/:offerId'
+          component={BuyingDiscussionConnector}
         />
       </Switch>
     </Main>

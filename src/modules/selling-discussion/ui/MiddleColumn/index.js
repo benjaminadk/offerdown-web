@@ -31,13 +31,13 @@ export const MiddleColumnWrapper = styled.div`
   }
 `
 
-const MiddleColumn = ({ buyer }) => {
+const MiddleColumn = ({ otherUser }) => {
   return (
     <MiddleColumnWrapper>
       <div className='buyer'>
-        <img src={buyer.image} alt={buyer.name} />
+        <img src={otherUser.image} alt={otherUser.name} />
         <div className='properties'>
-          <div className='name'>{buyer.name}</div>
+          <div className='name'>{otherUser.name}</div>
           <div className='location'>Somewhere,CA</div>
           <FiveStar />
         </div>

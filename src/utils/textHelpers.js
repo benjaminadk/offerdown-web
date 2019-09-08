@@ -15,7 +15,8 @@ export const formatPrice = price =>
   }).format(price / 100)
 
 export const formatCreatedAt = ts =>
-  formatDistanceStrict(fromUnixTime(ts / 1000), new Date()) + ' ago'
+  formatDistanceStrict(ts.includes('-') ? new Date(ts) : fromUnixTime(ts / 1000), new Date()) +
+  ' ago'
 
 export const formatEnum = str => {
   return str

@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import SellingContainer from './SellingContainer'
+import BuyingContainer from './BuyingContainer'
 import OfferTabs from '../shared/OfferTabs'
 import List from './ui/List'
 
-export const SellingConnectorWrapper = styled.div`
+export const BuyingConnectorWrapper = styled.div`
   background-color: ${p => p.theme.grey[0]};
   .content {
     max-width: 960px;
@@ -18,21 +18,21 @@ export const SellingConnectorWrapper = styled.div`
 
 const OfferConnector = () => {
   return (
-    <SellingContainer>
+    <BuyingContainer>
       {({ loading, data }) => {
         if (loading) {
           return null
         }
         return (
-          <SellingConnectorWrapper>
+          <BuyingConnectorWrapper>
             <div className='content'>
               <OfferTabs />
-              <List offers={data.findSellingOffers} />
+              <List offers={data.findBuyingOffers} />
             </div>
-          </SellingConnectorWrapper>
+          </BuyingConnectorWrapper>
         )
       }}
-    </SellingContainer>
+    </BuyingContainer>
   )
 }
 

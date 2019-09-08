@@ -15,7 +15,7 @@ export const FooterWrapper = styled.footer`
 
 const Footer = ({ location }) => {
   const match = matchPath(location.pathname, {
-    path: '/selling/:itemId/discussion/:offerId'
+    path: '/(selling|buying)/:itemId/discussion/:offerId'
   })
   if (match) {
     return null

@@ -14,7 +14,8 @@ export const formatPrice = price =>
     minimumFractionUnits: 2
   }).format(price / 100)
 
-export const formatCreatedAt = ts => formatDistanceStrict(fromUnixTime(ts / 1000), new Date())
+export const formatCreatedAt = ts =>
+  formatDistanceStrict(fromUnixTime(ts / 1000), new Date()) + ' ago'
 
 export const formatEnum = str => {
   return str

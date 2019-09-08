@@ -21,7 +21,7 @@ export const Form = styled.form`
     margin-bottom: 8px;
     resize: none;
     &::placeholder {
-      color: ${p => p.theme.grey[5]};
+      color: ${p => p.theme.placeholder};
     }
   }
   .error {

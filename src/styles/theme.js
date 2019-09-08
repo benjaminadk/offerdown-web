@@ -1,4 +1,4 @@
-import { lighten, desaturate } from 'polished'
+import { lighten, darken, desaturate } from 'polished'
 
 export const theme = {
   primary: '#00ab80',
@@ -6,7 +6,10 @@ export const theme = {
   black: '#4a4a4a',
   white: '#ffffff',
   error: '#e05666',
+  placeholder: '#C0BFBF',
+  detail: '#817E7E',
   hoverPrimaryLight: desaturate(0.5, lighten(0.6, '#00ab80')),
+  hoverPrimaryDark: darken(0.05, '#00ab80'),
   grey: [
     '#FAFAFA',
     '#F2F2F2',

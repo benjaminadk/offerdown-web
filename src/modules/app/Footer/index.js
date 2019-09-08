@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter, matchPath } from 'react-router-dom'
 import styled from 'styled-components'
 
 import footerBackground from '../../../styles/footer-background.jpg'
@@ -12,8 +13,14 @@ export const FooterWrapper = styled.footer`
   padding: 20px auto;
 `
 
-const Footer = () => {
+const Footer = ({ location }) => {
+  const match = matchPath(location.pathname, {
+    path: '/selling/:itemId/discussion/:offerId'
+  })
+  if (match) {
+    return null
+  }
   return <FooterWrapper />
 }
 
-export default Footer
+export default withRouter(Footer)

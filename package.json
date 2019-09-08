@@ -11,6 +11,8 @@
     "apollo-link": "1.2.12",
     "apollo-link-error": "1.1.11",
     "apollo-link-http": "1.5.15",
+    "apollo-link-ws": "1.0.19",
+    "apollo-upload-client": "11.0.0",
     "axios": "0.19.0",
     "date-fns": "2.0.1",
     "downshift": "3.2.12",
@@ -28,6 +30,7 @@
     "styled-components": "4.3.2",
     "styled-icons": "8.4.0",
     "styled-normalize": "8.0.6",
+    "subscriptions-transport-ws": "0.9.16",
     "yup": "0.27.0"
   },
   "scripts": {

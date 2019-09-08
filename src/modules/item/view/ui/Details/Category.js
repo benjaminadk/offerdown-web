@@ -20,7 +20,7 @@ export const CategoryWrapper = styled.div`
 const Category = ({ category, createdAt }) => {
   return (
     <CategoryWrapper>
-      Posted {formatCreatedAt(createdAt)} ago in{' '}
+      Posted {formatCreatedAt(createdAt)} in{' '}
       <span className='category'>{formatEnum(category)}</span>
     </CategoryWrapper>
   )

@@ -1,4 +1,3 @@
-import { darken } from 'polished'
 import styled from 'styled-components'
 
 export const ButtonBase = styled.button`
@@ -17,7 +16,7 @@ export const ButtonSolid = styled(ButtonBase)`
   background-color: ${p => p.theme.primary};
   color: ${p => p.theme.white};
   &:hover {
-    background-color: ${p => `${darken(0.05, p.theme.primary)}`};
+    background-color: ${p => p.theme.hoverPrimaryDark};
   }
 `
 

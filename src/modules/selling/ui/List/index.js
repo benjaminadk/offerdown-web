@@ -16,15 +16,6 @@ export const ListItem = styled(Link)`
   &:hover {
     background: ${p => p.theme.hoverPrimaryLight};
   }
-  .image {
-    width: 75px;
-    height: 75px;
-    background-image: ${p => `url(${p.image})`};
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
-    border-radius: 5px;
-  }
   .info {
     display: flex;
     flex-direction: column;
@@ -53,6 +44,19 @@ export const ListItem = styled(Link)`
   }
 `
 
+export const ItemImage = styled.div.attrs(p => ({
+  style: {
+    backgroundImage: `url(${p.image})`
+  }
+}))`
+  width: 75px;
+  height: 75px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  border-radius: 5px;
+`
+
 export const Avatar = styled.div.attrs(p => ({
   style: {
     backgroundImage: `url(${p.image})`,
@@ -73,15 +77,15 @@ const List = ({ offers }) => {
 
   useEffect(() => {
     setData(Object.values(groupby(offers, offer => offer.item.id)))
-  }, [])
+  }, [offers])
 
   return (
     <ListWrapper>
       {data.map(datum => {
         const { id, item } = datum[0]
         return (
-          <ListItem key={id} to={`/selling/discussion/${id}`} image={item.images[0]}>
-            <div className='image'></div>
+          <ListItem key={id} to={`/selling/${item.id}/discussion/${id}`}>
+            <ItemImage image={item.images[0]} />
             <div className='info'>
               <div className='name'>{item.name}</div>
               <div className='users'>

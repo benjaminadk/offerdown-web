@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import PriceTag from './PriceTag'
+import PriceAndName from './PriceAndName'
 import Category from './Category'
 import Condition from './Condition'
 import Description from './Description'
@@ -42,7 +42,7 @@ const Details = ({ item }) => {
   return (
     <DetailsWrapper>
       <Container>
-        <PriceTag name={name} price={price} />
+        <PriceAndName name={name} price={price} />
         <Location location={location} latitude={latitude} longitude={longitude} />
         <Category category={category} createdAt={createdAt} />
         <Hr />

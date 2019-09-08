@@ -1,8 +1,8 @@
 import { useQuery } from 'react-apollo'
 import gql from 'graphql-tag'
 
-const findItemsQuery = gql`
-  query FindItemsQuery {
+const findItems = gql`
+  query FindItems {
     findItems {
       id
       name
@@ -14,7 +14,7 @@ const findItemsQuery = gql`
 `
 
 const FindItemsContainer = ({ children }) => {
-  const payload = useQuery(findItemsQuery)
+  const payload = useQuery(findItems)
   return children(payload)
 }
 

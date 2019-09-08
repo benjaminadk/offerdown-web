@@ -20,7 +20,7 @@ const OfferConnector = () => {
   return (
     <SellingContainer>
       {({ loading, data }) => {
-        if (loading) {
+        if (loading || !data) {
           return null
         }
         return (

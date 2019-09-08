@@ -7,6 +7,7 @@ import SellingDiscussionContainer from './SellingDiscussionContainer'
 import Header from './ui/Header'
 import LeftColumn from './ui/LeftColumn'
 import MiddleColumn from './ui/MiddleColumn'
+import RightColumn from './ui/RightColumn'
 
 export const SellingDiscussionConnectorWrapper = styled.div`
   background-color: ${p => p.theme.grey[0]};
@@ -51,7 +52,7 @@ const SellingChatConnector = ({ match, history }) => {
               <div className='main'>
                 <LeftColumn offers={offers} item={offer.item} />
                 <MiddleColumn otherUser={offer.buyer} />
-                <div>col 3</div>
+                <RightColumn item={offer.item} />
               </div>
             </div>
           </SellingDiscussionConnectorWrapper>

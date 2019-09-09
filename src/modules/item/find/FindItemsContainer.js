@@ -8,7 +8,9 @@ const findItems = gql`
       name
       price
       images
-      location
+      seller {
+        location
+      }
     }
   }
 `

@@ -34,9 +34,7 @@ const Details = ({ item }) => {
     price,
     category,
     condition,
-    location,
-    latitude,
-    longitude
+    seller: { location, latitude, longitude }
   } = item
 
   return (

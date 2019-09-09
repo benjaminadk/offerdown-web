@@ -12,13 +12,13 @@ const viewItemQuery = gql`
       images
       condition
       category
-      location
-      latitude
-      longitude
       seller {
         id
         name
         image
+        location
+        latitude
+        longitude
       }
     }
   }

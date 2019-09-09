@@ -3,8 +3,8 @@ import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 
 const signupMutation = gql`
-  mutation Signup($email: String!, $name: String!, $password: String!) {
-    signup(email: $email, name: $name, password: $password) {
+  mutation Signup($input: SignupInput!) {
+    signup(input: $input) {
       path
       message
     }
@@ -15,8 +15,11 @@ const SignupContainer = ({ children, history }) => {
   const [mutate] = useMutation(signupMutation)
 
   async function submit(values) {
+    const geolocation = JSON.parse(window.localStorage.getItem('od_location'))
+    const input = { ...values, ...geolocation }
+
     const { data } = await mutate({
-      variables: values
+      variables: { input }
     })
     if (data) {
       return data.signup

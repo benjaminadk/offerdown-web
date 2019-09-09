@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React from 'react'
 import { LocationOn } from 'styled-icons/material/LocationOn'
 import styled from 'styled-components'
 
-import { AppContext } from '../../../../../App'
+import { useDriveTime } from '../../../../../utils/useDriveTime'
 
 export const LocationWrapper = styled.div`
   display: flex;
@@ -22,33 +22,7 @@ export const LocationWrapper = styled.div`
 `
 
 const Location = ({ location, latitude, longitude }) => {
-  const [driveTime, setDriveTime] = useState('')
-  const { platform } = useContext(AppContext)
-
-  useEffect(() => {
-    const { localStorage } = window
-    const userLocation = JSON.parse(localStorage.getItem('od_location'))
-
-    if (userLocation && userLocation.latitude && userLocation.longitude) {
-      const router = platform.getRoutingService()
-      const options = {
-        waypoint0: `geo!${latitude},${longitude}`,
-        waypoint1: `geo!${userLocation.latitude},${userLocation.longitude}`,
-        mode: 'fastest;car;traffic:disabled'
-      }
-
-      const onSuccess = result => {
-        const { distance } = result.response.route[0].summary
-        setDriveTime(Math.round(distance / 1600))
-      }
-
-      const onError = error => {
-        console.log(error)
-      }
-
-      router.calculateRoute(options, onSuccess, onError)
-    }
-  }, [platform, latitude, longitude])
+  const driveTime = useDriveTime(latitude, longitude)
 
   return (
     <LocationWrapper>

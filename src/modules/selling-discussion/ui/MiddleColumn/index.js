@@ -38,7 +38,7 @@ const MiddleColumn = ({ otherUser }) => {
         <img src={otherUser.image} alt={otherUser.name} />
         <div className='properties'>
           <div className='name'>{otherUser.name}</div>
-          <div className='location'>Somewhere,CA</div>
+          <div className='location'>{otherUser.location}</div>
           <FiveStar />
         </div>
       </div>

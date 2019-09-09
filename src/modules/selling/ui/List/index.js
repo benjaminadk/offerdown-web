@@ -89,9 +89,14 @@ const List = ({ offers }) => {
             <div className='info'>
               <div className='name'>{item.name}</div>
               <div className='users'>
-                {datum.map((offer, i) => (
-                  <Avatar key={offer.buyer.image} index={i} image={offer.buyer.image} />
-                ))}
+                {datum.map((offer, i) => {
+                  if (i < 5) {
+                    return <Avatar key={offer.buyer.image} index={i} image={offer.buyer.image} />
+                  } else {
+                    return null
+                  }
+                })}
+                {datum.length > 5 && <div className='extra'>+ {datum.length}</div>}
               </div>
             </div>
             <div className='archive'>Archive</div>

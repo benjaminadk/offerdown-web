@@ -8,9 +8,13 @@ export const findSellingOffersByItemId = gql`
       id
       item {
         id
+        createdAt
         name
+        description
         images
         price
+        category
+        condition
       }
       messages {
         id
@@ -26,11 +30,17 @@ export const findSellingOffersByItemId = gql`
         id
         name
         image
+        location
+        latitude
+        longitude
       }
       seller {
         id
         name
         image
+        location
+        latitude
+        longitude
       }
     }
   }

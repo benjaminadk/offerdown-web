@@ -52,7 +52,7 @@ const SellingChatConnector = ({ match, history }) => {
               <div className='main'>
                 <LeftColumn offers={offers} item={offer.item} />
                 <MiddleColumn otherUser={offer.buyer} />
-                <RightColumn item={offer.item} />
+                <RightColumn offer={offer} />
               </div>
             </div>
           </SellingDiscussionConnectorWrapper>

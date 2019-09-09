@@ -5,7 +5,13 @@ import { formatName, formatPrice } from '../../../../utils/textHelpers'
 import { CardWrapper } from './styles'
 
 const Card = ({ item }) => {
-  const { id, name, images, price, location } = item
+  const {
+    id,
+    name,
+    images,
+    price,
+    seller: { location }
+  } = item
 
   return (
     <Link to={`/item/${id}`}>

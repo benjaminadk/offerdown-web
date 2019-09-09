@@ -18,13 +18,12 @@ export const AppContext = createContext({
 const App = () => {
   const screen = useMedia()
   const platform = useHere()
-  useLocation()
+  useLocation(platform)
 
   return (
     <Authentication>
       {({ loading, data }) => {
         if (loading) {
-          // put loading screen here
           return null
         }
         return (
